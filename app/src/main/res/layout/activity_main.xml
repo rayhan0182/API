@@ -5,15 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Activity.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/items"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="create"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/alluser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="employe information"/>
+
+
+
+
+
 
 </LinearLayout>
