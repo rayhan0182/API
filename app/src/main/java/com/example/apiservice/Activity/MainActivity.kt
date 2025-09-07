@@ -21,6 +21,13 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        binding.create.setOnClickListener {
+
+
+            startActivity(Intent(this@MainActivity, createuser::class.java))
+
+        }
+
 
 
     }
