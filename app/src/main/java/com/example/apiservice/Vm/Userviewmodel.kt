@@ -15,7 +15,6 @@ import javax.inject.Inject
 @HiltViewModel
 class Userviewmodel @Inject constructor(val repository: Repository) : ViewModel() {
 
-
     private val _ulivedata = MutableLiveData<List<Showdata>>()
 
     val livedata: LiveData<List<Showdata>> = _ulivedata
@@ -24,6 +23,10 @@ class Userviewmodel @Inject constructor(val repository: Repository) : ViewModel(
     private val _cdata = MutableLiveData<Createdata>()
 
     val cdata: LiveData<Createdata> = _cdata
+
+    private val _update = MutableLiveData<Result<Showdata>>()
+
+    val update: LiveData<Result<Showdata>> = _update
 
 
     fun fetchuser() {
@@ -46,15 +49,13 @@ class Userviewmodel @Inject constructor(val repository: Repository) : ViewModel(
 
     }
 
-
     fun createuser(id: Int, htitle: String, details: String) {
-
 
         viewModelScope.launch {
 
             try {
 
-                val userd = Createdata(id, 1, htitle, details)
+                val userd = Createdata(id, 0, htitle, details)
 
                 _cdata.value = userd
 
@@ -66,11 +67,37 @@ class Userviewmodel @Inject constructor(val repository: Repository) : ViewModel(
 
             }
 
+        }
+
+    }
+
+
+    fun updateuser(showdata: Showdata){
+
+
+        viewModelScope.launch {
+
+            try {
+
+                val data = repository.updatefetch(showdata)
+
+                _update.value = data
+
+            }catch (e: Exception){
+
+                Log.e("TAG", "updateuser: ${e.message.toString()}", )
+
+            }
+
+
 
         }
 
 
+
+
     }
+
 
 
 }

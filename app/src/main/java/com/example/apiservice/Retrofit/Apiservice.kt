@@ -7,6 +7,8 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface Apiservice {
 
@@ -18,5 +20,8 @@ interface Apiservice {
 
     suspend fun create(@Body used: Createdata): Createdata
 
+     @PUT("users/{id}")
+
+    suspend fun updateuser(@Path("id")id: Int,@Body showdata: Showdata): Showdata
 
 }

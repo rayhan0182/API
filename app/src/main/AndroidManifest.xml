@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APIService">
         <activity
+            android:name=".update"
+            android:exported="false" />
+        <activity
             android:name=".Activity.createuser"
             android:exported="false" />
         <activity

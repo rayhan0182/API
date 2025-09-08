@@ -36,25 +36,6 @@ class Adapter(private val ulist: List<Showdata>): RecyclerView.Adapter<Adapter.V
 
                 this.email.text = it.email
 
-                this.street.text = it.address.street
-
-                this.suite.text = it.address.suite
-
-                this.city.text = it.address.city
-
-                this.lat.text = it.address.geo.lat
-
-                this.lng.text = it.address.geo.lng
-
-                this.phone.text = it.phone
-
-                this.website.text = it.website
-
-                this.name2.text = it.company.name
-
-                this.catchPhrase.text = it.company.catchPhrase
-
-                this.bs.text = it.company.bs
             }
 
         }

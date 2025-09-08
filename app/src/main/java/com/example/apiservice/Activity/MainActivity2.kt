@@ -1,6 +1,7 @@
 package com.example.apiservice.Activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,10 +14,11 @@ import com.example.apiservice.databinding.ActivityMain2Binding
 import com.example.apiservice.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.getValue
+
 @AndroidEntryPoint
 class MainActivity2 : AppCompatActivity() {
     lateinit var binding: ActivityMain2Binding
-    private val viewmodel: Userviewmodel by  viewModels()
+    private val viewmodel: Userviewmodel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMain2Binding.inflate(layoutInflater)
@@ -24,9 +26,18 @@ class MainActivity2 : AppCompatActivity() {
 
         viewmodel.fetchuser()
 
-        viewmodel.livedata.observe(this){data->
+        viewmodel.livedata.observe(this) { data ->
 
             binding.rc.adapter = Adapter(data)
+
+        }
+
+
+        viewmodel.updateuser(0, "Rayhan", "software enginear", "rayhansir@gmail.com")
+
+        viewmodel.update.observe(this) { users ->
+
+            Log.e("cheak", "${users.name}\n${users.username}\n${users.email}")
 
         }
 

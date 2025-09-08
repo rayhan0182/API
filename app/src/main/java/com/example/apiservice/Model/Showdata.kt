@@ -8,44 +8,6 @@ data class Showdata(
 
       val username: String,
 
-      val email: String,
-
-      val address: address,
-
-      val phone: String,
-
-      val website: String,
-
-      val company: company
+      val email: String
 )
 
-data class address(
-
-
-    val street: String,
-
-    val suite: String,
-
-    val city: String,
-
-    val zipcode: String,
-
-    val geo: geo
-
-)
-
-data class geo(
-
-    val lat: String,
-
-    val lng: String
-)
-
-data class company(
-
-    val name: String,
-
-    val catchPhrase: String,
-
-    val bs: String
-)
